@@ -31,10 +31,36 @@ time,mark,audio,video{
 
 /*------------------------------------*\
     $MAIN
+    PALE GOLD: #C0B283
+    SILK: #DCD0C0
+    PAPER: #F4F4F4
+    CHARCOAL: #373737
 \*------------------------------------*/
 body {
     background-color: #DCD0C0;
 }
+
+a {
+    text-decoration: none;
+    color: #F4F4F4;
+}
+
+#all, #live, #offline {
+    display: inline-block;
+    position: relative;
+    background-color: #C0B283;
+    width: 33.1%;
+    text-align: center;
+    height: 40px; 
+    line-height: 40px;
+    /*height of 48px makes mobile clicking better*/
+}
+
+#live {
+    margin: 0 1px 0 1px;
+}
+ 
+
 
 #container {
     display: block;
@@ -43,6 +69,7 @@ body {
     width: 35%;
     height: 350px;
     margin: 50px auto;
-    border: 1px solid #373737
+    box-shadow: 0px 0px 1px #373737;
+
 }
 
