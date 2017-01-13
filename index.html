@@ -8,7 +8,18 @@
     <!--[if IE]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
     <style>
+        @media (max-width: 400px) {
+            #container {
+                width: 50%;
+            }
+
+            #all, #live, #offline {
+                font-size: 12px;
+            }
+        }
         @media (max-width: 500px) {
             #container {
                 width: 45%;
@@ -42,6 +53,10 @@
         <nav id="nav">
             <a id="all" class="active" href="#">All</a><a id="live" href="#">Live</a><a id="offline" href="#">Offline</a>
         </nav>
+        <div id="search-bar">
+            <span class='icon'><i class="fa fa-search"></i></span>
+            <input type="search" id="search" placeholder="Search...">
+        </div>
 
     </div>
 </body>
