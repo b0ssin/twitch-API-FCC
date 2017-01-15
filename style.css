@@ -95,5 +95,31 @@ a {
 #search-icon {
     position: relative;
     left: 10%;
+}
 
+/* User Item Styling */
+.user-wrapper {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.user-image {
+    float: left;
+    width: 48px; height: 48px;
+    border-radius: 50%;
+}
+
+.user-name, .title {
+    position: relative;
+    top: 5px;
+    left: 10px;
+};
+
+.user-name, .title {
+    margin: 10px 10px;
+    float: left;
+}
+
+span.indicator {
+    float: right;
 }
