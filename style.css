@@ -121,5 +121,7 @@ a {
 }
 
 span.indicator {
+    position: relative;
+    right: 10px;
     float: right;
 }
