@@ -2,30 +2,98 @@
     RESET BOILERPLATE CREDIT: 
     http://csswizardry.com/2011/01/the-real-html5-boilerplate/
 \*------------------------------------*/
+
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
     v2.0b1 | 201101 
     NOTE:WORK IN PROGRESS
     USE WITH CAUTION AND TEST WITH ABANDON */
 
-html,body,div,span,applet,object,iframe,
-h1,h2,h3,h4,h5,h6,p,blockquote,pre,
-a,abbr,acronym,address,big,cite,code,
-del,dfn,em,img,ins,kbd,q,s,samp,
-small,strike,strong,sub,sup,tt,var,
-b,u,i,center,
-dl,dt,dd,ol,ul,li,
-fieldset,form,label,legend,
-table,caption,tbody,tfoot,thead,tr,th,td,
-article,aside,canvas,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section,summary,
-time,mark,audio,video{
-    margin:0;
-    padding:0;
-    border:0;
-    outline:0;
-    font-size:100%;
-    font:inherit;
-    vertical-align:baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 
 
@@ -36,6 +104,7 @@ time,mark,audio,video{
     PAPER: #F4F4F4
     CHARCOAL: #373737
 \*------------------------------------*/
+
 body {
     background-color: #DCD0C0;
 }
@@ -45,14 +114,15 @@ a {
     color: #F4F4F4;
 }
 
-
-#all, #live, #offline {
+#all,
+#live,
+#offline {
     display: inline-block;
     position: relative;
     background-color: #C0B283;
     width: 33.22%;
     text-align: center;
-    height: 40px; 
+    height: 40px;
     line-height: 40px;
     /*height of 48px makes mobile clicking better*/
 }
@@ -62,15 +132,14 @@ a {
     border-left: 1px solid #373737;
     border-right: 1px solid #373737;
 }
- 
-
 
 #container {
     width: 282px;
+    min-height: 150px;
+    height: auto;
     display: block;
     background-color: #F4F4F4;
     position: relative;
-    height: 380px;
     margin: 50px auto;
     box-shadow: 0px 0px 1px #373737;
 }
@@ -78,11 +147,13 @@ a {
 .active {
     color: #373737;
 }
+
+
 /* Search bar */
 
 #search-wrapper {
     text-align: center;
-    margin-top: 10px; 
+    margin-top: 10px;
 }
 
 #search-bar {
@@ -97,7 +168,9 @@ a {
     left: 10%;
 }
 
+
 /* User Item Styling */
+
 .user-wrapper {
     margin-top: 10px;
     margin-left: 10px;
@@ -105,17 +178,21 @@ a {
 
 .user-image {
     float: left;
-    width: 48px; height: 48px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
 }
 
-.user-name, .title {
+.user-name,
+.title {
     position: relative;
     top: 5px;
     left: 10px;
-};
+}
 
-.user-name, .title {
+;
+.user-name,
+.title {
     margin: 10px 10px;
     float: left;
 }
