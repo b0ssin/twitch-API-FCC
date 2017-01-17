@@ -26,8 +26,8 @@
              // success codes
              let data = JSON.parse(this.response);
              console.log(data);
+             // online
              if (data.stream) {
-                 // if the stream is online
                  let container = document.getElementById("container")
                      //          <div class="user-wrapper">
                      //     <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" class="user-image">
@@ -35,13 +35,15 @@
                      //     <span class="indicator-on"></span>
                      //     <p class="title">User.Title</p>
                      // </div>
-
                  let appendString = "<div class='user-wrapper'>" +
                      "<img src='" + data.stream.channel.logo + "' class = 'user-image'>" +
-                     "<p class='user-name'>" + twitchList[i] + "</p>" +
+                     "<p class='user-name'>" + data.stream.channel.display_name + "</p>" +
                      "<span class='indicator-on'></span>" +
                      "<p class='title'>" + data.stream.channel.game + "</p></div>";
                  container.innerHTML += appendString;
+             } else {
+                 // offline
+
              }
          } else {
              // returned an error
