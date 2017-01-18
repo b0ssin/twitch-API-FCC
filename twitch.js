@@ -3,19 +3,12 @@
  // https://api.twitch.tv/kraken with https://wind-bow.gomix.me/twitch-api. 
  // Use this endpoint according to the Twitch API documentation.
 
- // NOTE:
- // This server caches data to lower the request rate. 
- // To prevent abuses this server accepts GET requests only, and 
- // serves only routes /users/:user, /channels/:channel, and /streams/:stream. 
- // These are more than enough to complete the challenge.
- // https://forum.freecodecamp.com/t/freecodecamp-challenge-guide-how-to-use-the-twitchtv-api/19541
-
 
  //IE 10+
  let twitchList = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp",
      "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"
- ]
- let len = twitchList.length
+ ];
+ let len = twitchList.length;
  for (var i = 0; i < len; i++) {
      let request = new XMLHttpRequest();
      let url = 'https://wind-bow.gomix.me/twitch-api/streams/' + twitchList[i] + "?"
@@ -25,16 +18,9 @@
          if (this.status >= 200 && this.status < 400) {
              // success codes
              let data = JSON.parse(this.response);
-             console.log(data);
              // online
              if (data.stream) {
-                 let container = document.getElementById("container")
-                     //          <div class="user-wrapper">
-                     //     <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" class="user-image">
-                     //     <p class="user-name">User.Name</p>
-                     //     <span class="indicator-on"></span>
-                     //     <p class="title">User.Title</p>
-                     // </div>
+                 let container = document.getElementById("container");
                  let appendString = "<div class='user-wrapper'>" +
                      "<img src='" + data.stream.channel.logo + "' class = 'user-image'>" +
                      "<p class='user-name'>" + data.stream.channel.display_name + "</p>" +
@@ -43,6 +29,34 @@
                  container.innerHTML += appendString;
              } else {
                  // offline
+                 let channelLink = data._links.channel;
+                 let url = channelLink.replace("https://api.twitch.tv/kraken/",
+                     "https://wind-bow.gomix.me/twitch-api/");
+                 url += "?";
+                 let request = new XMLHttpRequest();
+
+                 request.open("GET", url, true);
+
+                 request.onload = function() {
+                     if (this.status >= 200 && this.status < 400) {
+                         let data = JSON.parse(this.response);
+                         let container = document.getElementById("container");
+                         let appendString = "<div class='user-wrapper'>" +
+                             "<img src='" + data.logo + "' class = 'user-image'>" +
+                             "<p class='user-name'>" + data.display_name + "</p>" +
+                             "<span class='indicator-off'></span>" +
+                             "<p class='title'></p></div>";
+                         container.innerHTML += appendString;
+                     } else {
+                         console.log('reached server but returned an error')
+                     }
+                 };
+                 request.onerror = function() {
+                     console.log("connection error on second call");
+                 };
+                 // for offline streamers
+                 request.send();
+
 
              }
          } else {
@@ -52,8 +66,36 @@
      };
 
      request.onerror = function() {
-         alert("Actual connection error");
+         alert("Connection error on first call");
      };
 
      request.send();
  }
+
+ document.addEventListener("DOMContentLoaded", function() {
+     // All Tab 
+     let allTab = document.getElementById("all");
+
+     function showAll() {
+         let targetParentNodes = document.getElementsByClassName("user-wrapper");
+         let len = targetParentNodes.length
+         for (var i = 0; i < len; i++) {
+             targetParentNodes[i].classList.remove("hide");
+         }
+     }
+     allTab.addEventListener("click", showAll, true);
+
+     //Live tab (hide offline)
+     let liveTab = document.getElementById("live");
+
+     function hideOffline() {
+         let offlineItems = document.getElementsByClassName("indicator-off");
+         let len = offlineItems.length
+         for (var i = 0; i < len; i++) {
+             let parent = offlineItems[i].parentElement;
+             parent.classList.add("hide");
+         };
+     }
+
+     liveTab.addEventListener("click", hideOffline, true);
+ });

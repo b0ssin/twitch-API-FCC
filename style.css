@@ -114,6 +114,10 @@ a {
     color: #F4F4F4;
 }
 
+.hide {
+    display: none;
+}
+
 #all,
 #live,
 #offline {
