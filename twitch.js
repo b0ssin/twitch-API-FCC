@@ -1,3 +1,16 @@
+ var allTab = document.getElementById("all");
+
+ allTab.addEventListener("click", function() {
+     alert("plz");
+     var targetedParents = document.getElementsByClassName("user-wrapper");
+     var len = targetParents.length;
+     for (var i = 0; i < len; i++) {
+         targetParents[i].classList.remove("hide");
+     }
+ });
+
+ var liveTab = document.getElementById("live");
+
  // USAGE:
  // Replace the Twitch API base URL 
  // https://api.twitch.tv/kraken with https://wind-bow.gomix.me/twitch-api. 
@@ -71,31 +84,3 @@
 
      request.send();
  }
-
- document.addEventListener("DOMContentLoaded", function() {
-     // All Tab 
-     let allTab = document.getElementById("all");
-
-     function showAll() {
-         let targetParentNodes = document.getElementsByClassName("user-wrapper");
-         let len = targetParentNodes.length
-         for (var i = 0; i < len; i++) {
-             targetParentNodes[i].classList.remove("hide");
-         }
-     }
-     allTab.addEventListener("click", showAll, true);
-
-     //Live tab (hide offline)
-     let liveTab = document.getElementById("live");
-
-     function hideOffline() {
-         let offlineItems = document.getElementsByClassName("indicator-off");
-         let len = offlineItems.length
-         for (var i = 0; i < len; i++) {
-             let parent = offlineItems[i].parentElement;
-             parent.classList.add("hide");
-         };
-     }
-
-     liveTab.addEventListener("click", hideOffline, true);
- });

@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Twitch API Ex.</title>
-<link rel="stylesheet" href="style.css">
-<!--[if IE]>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Twitch API Ex.</title>
+    <link rel="stylesheet" href="style.css">
+    <!--[if IE]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-<script src="https://use.fontawesome.com/5f08d91896.js"></script>
-<script src="twitch.js"></script>
+    <script src="https://use.fontawesome.com/5f08d91896.js"></script>
 
 </head>
 
@@ -17,7 +18,7 @@
     <div id="container">
 
         <nav id="nav">
-            <a id="all" class="active" href="#">All</a><a id="live" href="#">Live</a><a id="offline" href="#">Offline</a>
+            <span id="all" class="active" href="">All</span><span id="live" href="">Live</span><span id="offline" href="">Offline</span>
         </nav>
 
         <div id="search-wrapper">
@@ -27,5 +28,7 @@
 
     </div>
 </body>
+<script src="twitch.js"></script>
+
 
 </html>

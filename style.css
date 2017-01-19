@@ -124,10 +124,12 @@ a {
     display: inline-block;
     position: relative;
     background-color: #C0B283;
+    color: #F4F4F4;
     width: 33.22%;
     text-align: center;
     height: 40px;
     line-height: 40px;
+    cursor: pointer;
     /*height of 48px makes mobile clicking better*/
 }
 
@@ -149,8 +151,8 @@ a {
     box-shadow: 0px 0px 1px #373737;
 }
 
-.active {
-    color: #373737;
+span.active {
+    color: #373737 !important;
 }
 
 
