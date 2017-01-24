@@ -2,33 +2,27 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <title>Copy of Twitch-FCC</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Twitch API Ex.</title>
-    <link rel="stylesheet" href="style.css">
-    <!--[if IE]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+    <link href="style.css" rel="stylesheet">
     <script src="https://use.fontawesome.com/5f08d91896.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="listener.js"></script>
 </head>
 
-<body id="body">
-
+<body>
     <div id="container">
 
-        <nav id="nav">
-            <span id="all" class="active" href="">All</span><span id="live" href="">Live</span><span id="offline" href="">Offline</span>
-        </nav>
+      <nav id="nav">
+        <span id="all">All</span><span id="live">Live</span><span id="offline">Offline</span>
+      </nav>
 
-        <div id="search-wrapper">
-            <i id="search-icon" class="fa fa-search"></i>
-            <input type="search" id="search-bar" placeholder="Search...">
-        </div>
-
+      <div id="search-wrapper">
+        <i id="search-icon" class="fa fa-search"></i>
+        <input type="search" id="search-bar" placeholder="Search...">
+      </div>
     </div>
 </body>
-<script src="twitch.js"></script>
-
 
 </html>
