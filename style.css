@@ -195,12 +195,16 @@ a {
 
 .user-name,
 .title {
-    display: inline-block;
-    position: relative;
-    top: 5px;
-    left: 10px;
-    margin: 10px 10px;
     float: left;
+    position: relative;
+    margin-left: 10px;
+}
+
+.title {
+    position: relative;
+    clear: both;
+    top: -25px;
+    left: 48px;
 }
 
 span.indicator-on {
