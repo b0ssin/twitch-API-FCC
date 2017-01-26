@@ -1,5 +1,7 @@
 $(document).ready(function() {
     /** Event Listeners **/
+    let allTab = $("#all")
+    allTab.addClass("active");
     $("body").on("click", "#all", function(event) {
         let allTab = $(document.getElementById("all"));
         let liveTab = $(document.getElementById("live"));
@@ -7,13 +9,12 @@ $(document).ready(function() {
         allTab.addClass("active");
         liveTab.removeClass("active");
         offlineTab.removeClass("active");
-        let userItems = $(document.getElementsByClassName("user-wrapper"));
+        let userItems = document.getElementsByClassName("user-wrapper");
         let len = userItems.length;
         for (let i = 0; i < len; i++) {
-            if(userItems[i].classList.contains("hide")) {
-                userItems[i].removeClass("hide");
+            if (userItems[i].classList.contains("hide")) {
+                userItems[i].classList.remove("hide");
             }
-            
         };
 
     });
@@ -25,20 +26,20 @@ $(document).ready(function() {
         liveTab.addClass("active");
         allTab.removeClass("active");
         offlineTab.removeClass("active");
-        window.OFFLINE_USERS = $(document.getElementsByClassName("indicator-off"));
-        window.ONLINE_USERS = $(document.getElementsByClassName("indicator-on"));
-        let len = window.OFFLINE_USERS.length;
-        let lenOn = window.ONLINE_USERS.length;
+        offlineUsers = document.getElementsByClassName("indicator-off");
+        onlineUsers = document.getElementsByClassName("indicator-on");
+        let len = offlineUsers.length;
+        let lenOn = onlineUsers.length;
         // hide offline elements
         for (let i = 0; i < len; i++) {
-            if(window.OFFLINE_USERS[i].classList.contains("hide")) {
-                window.OFFLINE_USERS[i].addClass("hide");
+            if (!offlineUsers[i].parentElement.classList.contains("hide")) {
+                offlineUsers[i].parentElement.classList.add("hide");
             }
         };
         // show online elements
         for (let i = 0; i < lenOn; i++) {
-            if(window.ONLINE_USERS[i].classList.contains("hide")) {
-                window.ONLINE_USERS[i].removeClass("hide");
+            if (onlineUsers[i].parentElement.classList.contains("hide")) {
+                onlineUsers[i].parentElement.classList.remove("hide");
             }
         };
     });
@@ -50,17 +51,19 @@ $(document).ready(function() {
         offlineTab.addClass("active");
         allTab.removeClass("active");
         liveTab.removeClass("active");
-        let len = window.OFFLINE_USERS.length;
-        let lenOn = window.ONLINE_USERS.length;
+        offlineUsers = $(document.getElementsByClassName("indicator-off"));
+        onlineUsers = $(document.getElementsByClassName("indicator-on"));
+        let len = offlineUsers.length;
+        let lenOn = onlineUsers.length;
         console.log(window.ONLINE_USERS);
         for (let i = 0; i < len; i++) {
-            if(window.OFFLINE_USERS[i].classList.contains("hide")) {
-                window.OFFLINE_USERS[i].removeClass("hide");
-            } 
+            if (offlineUsers[i].parentElement.classList.contains("hide")) {
+                offlineUsers[i].parentElement.classList.remove("hide");
+            }
         };
         for (let i = 0; i < lenOn; i++) {
-            if(window.ONLINE_USERS[i].classList.contains("hide")) {
-                window.ONLINE_USERS[i].addClass("hide");
+            if (!onlineUsers[i].classList.contains("hide")) {
+                onlineUsers[i].parentElement.classList.add("hide");
             }
         };
     });
