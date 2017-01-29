@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    
+
     /** AJAX CALLS **/
     let twitchList = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp",
         "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"
@@ -120,6 +120,12 @@ $(document).ready(function() {
                 onlineUsers[i].parentElement.classList.add("hide");
             }
         };
+    });
+
+    // Search function
+    $("body").on("keyup", "#search-bar", function(event) {
+        let searchString = $("#search-bar").val();
+        console.log(searchString);
     });
 
 
