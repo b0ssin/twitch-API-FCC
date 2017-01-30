@@ -13,9 +13,11 @@ $(document).ready(function() {
             data: "json",
             success: function(data) {
                 if (data.stream) {
+                    //data.stream.channel._links.url
+                    let selfLink = data.stream.channel.url;
                     let container = document.getElementById("container");
-                    let appendString = "<div class='user-wrapper'>" +
-                        "<img src='" + data.stream.channel.logo + "' class = 'user-image'>" +
+                    let appendString = "<div class='user-wrapper'>" + "<a href='" + selfLink + "' target='_blank'>" +
+                        "<img src='" + data.stream.channel.logo + "' class = 'user-image'>" + "</a>" +
                         "<p class='user-name'>" + data.stream.channel.display_name + "</p>" +
                         "<span class='indicator-on'></span>" +
                         "<p class='title'>" + data.stream.channel.game + "</p></div>";
@@ -28,10 +30,11 @@ $(document).ready(function() {
                     $.ajax({
                         url: url,
                         data: "json",
-                        success: function(data) {
+                        success: function(data) { // data.url
+                            let selfLink = data.url
                             let container = document.getElementById("container");
-                            let appendString = "<div class='user-wrapper'>" +
-                                "<img src='" + data.logo + "' class = 'user-image'>" +
+                            let appendString = "<div class='user-wrapper'>" + "<a href='" + selfLink + "' target='_blank'>" +
+                                "<img src='" + data.logo + "' class = 'user-image'>" + "</a>" +
                                 "<p class='user-name'>" + data.display_name + "</p>" +
                                 "<span class='indicator-off'></span>" +
                                 "<p class='title'></p></div>";
@@ -124,8 +127,22 @@ $(document).ready(function() {
 
     // Search function
     $("body").on("keyup", "#search-bar", function(event) {
-        let searchString = $("#search-bar").val();
-        console.log(searchString);
+        let parentElements = document.getElementsByClassName("user-wrapper");
+        // iterate through, add hide to those that return false .contains(str) >childNodes >
+        let len = parentElements.length;
+        for (var i = 0; i < len; i++) {
+            let searchString = $("#search-bar").val().toUpperCase();
+            let currentChildElement = parentElements[i].childNodes[1];
+            let compareString = currentChildElement.innerHTML.toUpperCase();
+            console.log(searchString + " is the search item");
+            console.log(compareString + " comparison string");
+            if (compareString.includes(searchString)) {
+                parentElements[i].classList.remove("hide");
+            } else {
+                parentElements[i].classList.add("hide");
+            };
+        }
+
     });
 
 

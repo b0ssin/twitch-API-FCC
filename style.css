@@ -170,6 +170,10 @@ a {
     padding-left: 30px;
 }
 
+#search-bar:focus {
+    outline: none;
+}
+
 #search-icon {
     position: relative;
     left: 10%;
