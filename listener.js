@@ -2,12 +2,12 @@ $(document).ready(function() {
 
     /** AJAX CALLS **/
     let twitchList = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp",
-        "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"
+     "habathcx", "RobotCaleb", "noobs2ninjas"
     ];
 
     let len = twitchList.length;
     for (let i = 0; i < len; i++) {
-        let url = 'https://wind-bow.gomix.me/twitch-api/streams/' + twitchList[i] + "?";
+        let url = 'https://wind-bow.glitch.me/twitch-api/streams/' + twitchList[i] + "?";
         $.ajax({
             url: url,
             data: "json",
@@ -25,7 +25,7 @@ $(document).ready(function() {
                 } else {
                     let channelLink = data._links.channel;
                     let url = channelLink = channelLink.replace("https://api.twitch.tv/kraken/",
-                        "https://wind-bow.gomix.me/twitch-api/");
+                        "https://wind-bow.glitch.me/twitch-api/");
                     url += "?";
                     $.ajax({
                         url: url,
