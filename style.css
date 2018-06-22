@@ -105,6 +105,11 @@ video {
     CHARCOAL: #373737
 \*------------------------------------*/
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
 body {
     background-color: #DCD0C0;
 }
@@ -125,7 +130,7 @@ a {
     position: relative;
     background-color: #C0B283;
     color: #F4F4F4;
-    width: 33.22%;
+    width: 33.33%;
     text-align: center;
     height: 40px;
     line-height: 40px;
@@ -134,7 +139,6 @@ a {
 }
 
 #live {
-    margin-left: -1px;
     border-left: 1px solid #373737;
     border-right: 1px solid #373737;
 }
